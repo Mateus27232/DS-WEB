@@ -1,0 +1,36 @@
+.box{
+    text-align: center;
+    align-content: center;
+    background-color: aquamarine;
+    height: 100px;
+    width: 359px;
+    padding: 10px 30px;
+    border: 2px solid black;
+    margin: 10px 0px 10px 0px; 
+
+}
+.box2{
+    text-align: center;
+    background-color: rgb(157, 15, 205);
+    height: 50px;
+    width: 240px;
+    padding: 14px 30px;
+    border: 5px solid blue;
+    border-style: dotted;
+}
+.div-centralizada{
+    margin: 0 auto;
+    width: 300px;
+}
+
+.conteudo1{
+    display: inline-block;
+    width: 100px;
+    margin: 0 auto;
+
+}
+.conteudo1{
+    display: inline-block;
+    width: 100px;
+    margin: 0 auto;
+}

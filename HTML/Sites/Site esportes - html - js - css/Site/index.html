@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportNews - Portal de Notícias Esportivas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- CABEÇALHO PRINCIPAL -->
+    <!-- Contém o título do site, botão de modo escuro e botões de login -->
+    <header class="header">
+        <div class="container">
+            <!-- Logo e título principal - agora clicável para voltar à página inicial -->
+            <div class="logo" id="logo-home" role="button" tabindex="0" title="Voltar à página inicial">
+                <i class="fas fa-trophy"></i>
+                <h1>SportNews</h1>
+            </div>
+            
+            <!-- Controles do cabeçalho -->
+            <div class="header-controls">
+                <!-- Botão para alternar entre modo claro e escuro -->
+                <button id="theme-toggle" class="theme-btn" title="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <!-- Botões de autenticação (login/registro) -->
+                <div class="auth-buttons" id="auth-buttons">
+                    <button id="login-btn" class="btn btn-outline">Entrar</button>
+                    <button id="register-btn" class="btn btn-primary">Cadastrar</button>
+                </div>
+                
+                <!-- Área do usuário logado (inicialmente oculta) -->
+                <div class="user-area" id="user-area" style="display: none;">
+                    <div class="user-info">
+                        <img id="user-avatar" class="user-avatar" src="" alt="Avatar">
+                        <span id="username-display"></span>
+                        <span id="admin-badge" class="admin-badge" style="display: none;">ADMIN</span>
+                    </div>
+                    <div class="user-menu">
+                        <button id="profile-btn" class="btn btn-outline">Perfil</button>
+                        <button id="logout-btn" class="btn btn-outline">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVEGAÇÃO POR ABAS DE ESPORTES -->
+    <!-- Sistema de abas para filtrar notícias por categoria esportiva -->
+    <nav class="nav-tabs">
+        <div class="container">
+            <div class="tabs-wrapper">
+                <!-- Cada aba representa uma categoria de esporte -->
+                <button class="tab-btn active" data-sport="todas">
+                    <i class="fas fa-home"></i>
+                    Todas
+                </button>
+                <button class="tab-btn" data-sport="futebol">
+                    <i class="fas fa-futbol"></i>
+                    Futebol
+                </button>
+                <button class="tab-btn" data-sport="basquete">
+                    <i class="fas fa-basketball-ball"></i>
+                    Basquete
+                </button>
+                <button class="tab-btn" data-sport="volei">
+                    <i class="fas fa-volleyball-ball"></i>
+                    Vôlei
+                </button>
+                <button class="tab-btn" data-sport="tenis">
+                    <i class="fas fa-table-tennis"></i>
+                    Tênis
+                </button>
+                <button class="tab-btn" data-sport="natacao">
+                    <i class="fas fa-swimmer"></i>
+                    Natação
+                </button>
+                <button class="tab-btn" data-sport="atletismo">
+                    <i class="fas fa-running"></i>
+                    Atletismo
+                </button>
+                <button class="tab-btn" data-sport="perfis">
+                    <i class="fas fa-users"></i>
+                    Perfis
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        <div class="container">
+            <!-- BOTÃO PARA ADICIONAR NOVA NOTÍCIA -->
+            <!-- Visível apenas para usuários logados -->
+            <div class="add-news-section" id="add-news-section" style="display: none;">
+                <button id="add-news-btn" class="btn btn-success">
+                    <i class="fas fa-plus"></i>
+                    Adicionar Notícia
+                </button>
+            </div>
+
+            <!-- ÁREA DE NOTÍCIAS -->
+            <!-- Container onde todas as notícias serão exibidas -->
+            <section class="news-section" id="news-section">
+                <div class="news-grid" id="news-grid">
+                    <!-- As notícias serão inseridas aqui dinamicamente via JavaScript -->
+                </div>
+                
+                <!-- Mensagem exibida quando não há notícias -->
+                <div class="no-news" id="no-news" style="display: none;">
+                    <i class="fas fa-newspaper"></i>
+                    <p>Nenhuma notícia encontrada para esta categoria.</p>
+                </div>
+            </section>
+
+            <!-- ÁREA DE PERFIS DE USUÁRIOS -->
+            <!-- Container para exibir perfis de usuários -->
+            <section class="profiles-section" id="profiles-section" style="display: none;">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    Perfis de Usuários
+                </h2>
+                <div class="profiles-grid" id="profiles-grid">
+                    <!-- Os perfis serão inseridos aqui dinamicamente -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- MODAL DE NOTÍCIA EM TELA CHEIA -->
+    <!-- Exibe notícia completa com comentários -->
+    <div class="modal modal-fullscreen" id="news-modal">
+        <div class="modal-content modal-news">
+            <div class="modal-header">
+                <button class="close-btn" data-modal="news-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="news-full-content">
+                <img id="news-full-image" class="news-full-image" src="" alt="">
+                <div class="news-full-info">
+                    <div class="news-full-meta">
+                        <span id="news-full-sport" class="news-sport"></span>
+                        <span id="news-full-date" class="news-date"></span>
+                        <span id="news-full-author" class="news-author"></span>
+                    </div>
+                    <h1 id="news-full-title" class="news-full-title"></h1>
+                    <div class="news-full-actions">
+                        <button id="news-full-like" class="like-btn">
+                            <i class="fas fa-heart"></i>
+                            <span id="news-full-likes">0</span>
+                        </button>
+                        <button id="news-full-delete" class="delete-btn" style="display: none;">
+                            <i class="fas fa-trash"></i>
+                            Excluir
+                        </button>
+                    </div>
+                    <div id="news-full-text" class="news-full-text"></div>
+                    
+                    <!-- SEÇÃO DE COMENTÁRIOS -->
+                    <div class="comments-section">
+                        <h3 class="comments-title">
+                            <i class="fas fa-comments"></i>
+                            Comentários
+                        </h3>
+                        
+                        <!-- Formulário para adicionar comentário -->
+                        <div class="comment-form" id="comment-form" style="display: none;">
+                            <div class="comment-input-group">
+                                <textarea id="comment-text" placeholder="Escreva seu comentário..." rows="3"></textarea>
+                                <button id="submit-comment" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Comentar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Lista de comentários -->
+                        <div class="comments-list" id="comments-list">
+                            <!-- Comentários serão inseridos aqui -->
+                        </div>
+                        
+                        <!-- Mensagem para usuários não logados -->
+                        <div class="login-to-comment" id="login-to-comment">
+                            <p>
+                                <i class="fas fa-sign-in-alt"></i>
+                                Faça login para comentar
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <!-- Formulário de autenticação para usuários existentes -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Entrar</h2>
+                <button class="close-btn" data-modal="login-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="login-form">
+                <!-- Campo para email ou nome de usuário -->
+                <div class="form-group">
+                    <label for="login-email">Email ou Nome de Usuário</label>
+                    <input type="text" id="login-email" required>
+                </div>
+                
+                <!-- Campo para senha -->
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                
+                <!-- Botão de submissão -->
+                <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE REGISTRO -->
+    <!-- Formulário para criação de nova conta -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Criar Conta</h2>
+                <button class="close-btn" data-modal="register-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="register-form">
+                <!-- Campo para nome de usuário -->
+                <div class="form-group">
+                    <label for="register-username">Nome de Usuário</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                
+                <!-- Campo para email -->
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                
+                <!-- Campo para senha -->
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                
+                <!-- Campo para confirmação de senha -->
+                <div class="form-group">
+                    <label for="register-confirm">Confirmar Senha</label>
+                    <input type="password" id="register-confirm" required>
+                </div>
+                
+                <!-- Campo para bio -->
+                <div class="form-group">
+                    <label for="register-bio">Bio (opcional)</label>
+                    <textarea id="register-bio" rows="3" placeholder="Conte um pouco sobre você..."></textarea>
+                </div>
+                
+                <!-- Campo para avatar -->
+                <div class="form-group">
+                    <label for="register-avatar">URL do Avatar (opcional)</label>
+                    <input type="url" id="register-avatar" placeholder="https://exemplo.com/avatar.jpg">
+                </div>
+                
+                <!-- Botão de submissão -->
+                <button type="submit" class="btn btn-primary btn-full">Criar Conta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL PARA ADICIONAR NOTÍCIA -->
+    <!-- Formulário para criação de novas notícias -->
+    <div class="modal" id="add-news-modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Adicionar Nova Notícia</h2>
+                <button class="close-btn" data-modal="add-news-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="add-news-form">
+                <!-- Campo para título da notícia -->
+                <div class="form-group">
+                    <label for="news-title">Título da Notícia</label>
+                    <input type="text" id="news-title" required>
+                </div>
+                
+                <!-- Seletor de categoria esportiva -->
+                <div class="form-group">
+                    <label for="news-sport">Categoria</label>
+                    <select id="news-sport" required>
+                        <option value="">Selecione um esporte</option>
+                        <option value="futebol">Futebol</option>
+                        <option value="basquete">Basquete</option>
+                        <option value="volei">Vôlei</option>
+                        <option value="tenis">Tênis</option>
+                        <option value="natacao">Natação</option>
+                        <option value="atletismo">Atletismo</option>
+                    </select>
+                </div>
+                
+                <!-- Campo para URL da imagem -->
+                <div class="form-group">
+                    <label for="news-image">URL da Imagem</label>
+                    <input type="url" id="news-image" placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                
+                <!-- Campo para conteúdo da notícia -->
+                <div class="form-group">
+                    <label for="news-content">Conteúdo</label>
+                    <textarea id="news-content" rows="8" required placeholder="Escreva o conteúdo completo da notícia..."></textarea>
+                </div>
+                
+                <!-- Botão de submissão -->
+                <button type="submit" class="btn btn-primary btn-full">Publicar Notícia</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE PERFIL DE USUÁRIO -->
+    <!-- Exibe e permite editar perfil do usuário -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="profile-modal-title">Meu Perfil</h2>
+                <button class="close-btn" data-modal="profile-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="profile-content">
+                <div class="profile-header">
+                    <img id="profile-avatar" class="profile-avatar" src="" alt="Avatar">
+                    <div class="profile-info">
+                        <h3 id="profile-username"></h3>
+                        <p id="profile-email"></p>
+                        <span id="profile-admin-badge" class="admin-badge" style="display: none;">ADMINISTRADOR</span>
+                    </div>
+                    <button id="edit-profile-btn" class="btn btn-outline" style="display: none;">
+                        <i class="fas fa-edit"></i>
+                        Editar Perfil
+                    </button>
+                </div>
+                
+                <div class="profile-bio">
+                    <h4>Sobre</h4>
+                    <p id="profile-bio-text"></p>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="profile-news-count">0</span>
+                        <span class="stat-label">Notícias</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="profile-join-date"></span>
+                        <span class="stat-label">Membro desde</span>
+                    </div>
+                </div>
+                
+                <!-- Formulário de edição (inicialmente oculto) -->
+                <form id="edit-profile-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="edit-username">Nome de Usuário</label>
+                        <input type="text" id="edit-username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-email">Email</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-bio">Bio</label>
+                        <textarea id="edit-bio" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-avatar">URL do Avatar</label>
+                        <input type="url" id="edit-avatar">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-password">Nova Senha (deixe em branco para manter a atual)</label>
+                        <input type="password" id="edit-password">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        <button type="button" id="cancel-edit-btn" class="btn btn-outline">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SportNews. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <!-- Arquivo principal com todas as funcionalidades -->
+    <script src="script.js"></script>
+</body>
+</html>
+

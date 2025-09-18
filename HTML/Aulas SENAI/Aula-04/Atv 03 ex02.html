@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <Head>
+
+    </Head>
+    <BODy>
+        <form method="post">
+            <!--Botões Radio-->
+            <input type="radio" id="Masculino" name="Masculino" value="1">
+            <label for="opcao1">Masculino</label>
+            <input type="radio" id="feminino" name="feminino" value="2">
+            <label for="opcao2">feminino</label>
+            <input type="radio" id="Outro" name="Outro" value="3">
+            <label for="opcao2">Outro</label>
+            <br><br>
+            <!--Botões Checkbox-->
+            <h3>interesses:</h3>
+            <input type="checkbox" id="Tecnologia," name="interesses" value="Tecnologia">
+            <label for="Tecnologia">Tecnologia</label>
+            <input type="checkbox" id="Esportes" name="interesses" value="Esportes" checked>
+            <label for="Esportes">Esportes</label>   
+            <input type="checkbox" id="Arte" name="interesses" value="Arte">
+            <label for="Arte">Arte</label>
+            <input type="checkbox" id="Música" name="interesses" value="Música">
+            <label for="Música">Música</label>   
+            <br><br><br>
+            <!--Carros-->
+            <label for="carro">Escolha seu carro favorito:</label><br />
+            <select id="carro" name="carro" required>
+                <option value="" disabled selected>— Selecione —</option>
+                <optgroup label="Sedans">
+                  <option value="toyota corolla">Toyota Corolla</option>
+                  <option value="honda civic">Honda Civic</option>
+                </optgroup>
+                <optgroup label="SUVs">
+                  <option value="honda crv">Honda CR-V</option>
+                  <option value="toyota rav4">Toyota RAV4</option>
+                </optgroup>
+              </select>
+
+    
+
+             <!--botão enviar-->
+             <Button type="submit"> Enviar </Button>
+        </form>
+    </BODy>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario de cadastro simples</title>
+        <style>
+    body {
+      height: 100vh; /* ocupa toda a altura da tela */
+    }
+    .caixa {
+      padding: 20px;
+      background-color: lightblue;
+      border-radius: 8px;
+    }
+  </style>
+    </head>
+    <body>  
+        <h2>Formulario de cadastro simples</h2>
+        <br><br>
+        <form method="post">
+            <label for="Nome">Nome:</label>
+            <input type="text" id="Nome" name="Nome" placeholder="Digite seu Nome" required maxlength="50">
+            <br><br>
+            <label for="email">email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu E-mail" required maxlength="50">
+            <br><br>
+            <label for="Senha">Senha:</label>
+            <input type="text" id="Senha" name="Senha" placeholder="Digite sua Senha" required minlength="5">
+            <br><br>
+            <label for="Idade">Idade:</label>
+            <input type="number" id="Idade" name="Idade" placeholder="Digite sua Idade"  max="120" min="1" required>
+            <br><br>
+            
+            <!--Botões Radio-->
+            <input type="radio" id="Masculino" name="Masculino" value="1">
+            <label for="opcao1">Masculino</label>
+            <input type="radio" id="feminino" name="feminino" value="2">
+            <label for="opcao2">feminino</label>
+            <br><br>
+
+            <!--Caixa de seleção-->
+            <label for="cores">Escolha sua cor favorita:</label>
+            <select id="cores" name="cores">
+                <option value="vermelho">Vermelho</option>
+                <option value="azul">Azul</option>
+                <option value="verde">Verde</option>
+            </select>
+            <br><br>
+            <label for="Carros">Escolha seu Carro:</label>
+            <select id="carro" name="carro">
+                <option value="Honda Civic">Honda Civic</option>
+                <option value="Corolla">Corolla</option>
+                <option value="Honda CRV">Honda CRV</option>
+            </select>
+            <br><br>
+
+            <!--Botões Checkbox-->
+            <h3>interesses:</h3>
+            <input type="checkbox" id="noticias" name="interesses" value="noticias">
+            <label for="noticias">Receber notícias</label>
+            <input type="checkbox" id="promocoes" name="interesses" value="prom
+            ocoes" checked>
+            <label for="promocoes">Receber promoções</label>   
+            <br><br><br>
+
+            <!--botão enviar-->
+            <Button type="submit"> Enviar </Button>
+            
+        </form>
+      </body>
+</html>

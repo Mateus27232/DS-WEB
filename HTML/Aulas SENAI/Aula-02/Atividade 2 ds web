@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Atividade 01</title>
+    </head>
+    <body>
+    <center><hi>Mateus Covre</hi></center>
+
+        <hr>
+        <ul>
+            <li>Idade: 17 anos, 13/02/2009</li>
+            <li>Cidade: Boituva, portal das estrelas</li>
+            <ul>
+                <li>SEXO: masculino </li>
+                <ul>
+                   <li>Banda favorita:  </li>
+               
+                </ul>
+            </ul>
+        </ul>
+        <a href="https://www.instagram.com/bruattina/">Link para um site bem bonitão</a>
+        <br>
+        <br>
+        <a href="https://www.youtube.com/channel/UC3D-MuJMLQ4BR5e4tLNt0sQ">Link para a melhor banda de rock NACIONAL</a>
+        <!--    resumo ferias-->
+        <p align="center">
+            
+            <br>
+            <br>
+            
+
+        </p>
+        <button>Clique aqui</button>
+
+    </body>
+
+</html>

@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+ 
+  .container {
+    width: 400px;
+    margin: 30px auto;
+  }
+ 
+  .box {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 5px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    transition: color 0.3s;
+  }
+ 
+  .box:hover {
+    color: white;
+  }
+  .box1 {
+    background-color: beige;
+    border: 2px solid brown;
+  }
+ 
+  .box2 {
+    background-color: aqua;
+    border: 2px dotted teal;
+  } 
+ 
+  .box3 {
+    background-color: rgb(213, 71, 71);
+    border: 2px solid navy;
+  }
+ 
+  .box4 {
+    background-color: rgb(72, 161, 250);
+    border: 2px dashed indigo;
+  }
+ 
+  .box5 {
+    background-color: rgb(111, 99, 99);
+    border: 2px dotted black;
+  }
+ 
+  .box6 {
+    background-color: orange;
+    border: 2px dashed darkorange;
+  }
+ 
+  .box7 {
+    background-color: rgb(205, 200, 50);
+    border: 2px solid green;
+  }
+ 
+  .box8 {
+    background-color: wheat;
+    border: 2px dotted chocolate;
+  }
+ 
+  .box9 {
+    background-color: crimson;
+    border: 2px solid darkred;
+  }
+ 
+
+
