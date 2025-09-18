@@ -1,0 +1,18 @@
+.div1, .div2 {
+    display: inline-block;   
+    width: 150px;            
+    height: 150px;           
+    margin: 10px;            
+    text-align: center;      
+    color: white;
+}
+
+.div1 {
+    background-color: #ff6347; 
+    padding: 15px;
+}
+
+.div2 {
+    background-color: #1e90ff; 
+    padding: 15px;
+}
