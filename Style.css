@@ -1,93 +1,74 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
+/* RESET */
+* {
     margin: 0;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-  }
-  
-  .subtitle {
-    color: #94a3b8;
-    margin-bottom: 18px;
-  }
-  
-  .divider {
-    height: 1px;
-    background: #334155;
-    margin: 16px 0;
-  }
-  
-  /* Seção de mídia (notícias) */
-  .media {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color: #eaeaea;
     display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  
-  .media img {
-    width: 20%;
-    border-radius: 12px;
-  }
-  
-  .media .text {
-    flex: 1;
-  }
-  
-  .media .text h2 {
-    margin-top: 0;
-    font-size: clamp(20px, 2.4vw, 28px);
-  }
-  
-  .read-more {
-    display: inline-block;
-    margin-top: 8px;
-    text-decoration: none;
-    color: #38bdf8;
-  }
-  
-  .read-more:hover {
-    text-decoration: underline;
-  
-  }
-  tr:nth-child(even) { /* linhas pares */
-    background-color: #f9f9f9;
-    }
-    tr:nth-child(odd) { /* linhas ímpares */
-    background-color: #fff;
-    }
-  
-  /* Tabela de notícias relacionadas */
-  table {
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    background: #151525;
+    padding: 50px 60px;
+    border-radius: 18px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    max-width: 420px;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table th,
-  table td {
-    border: 1px solid #000;
-    padding: 8px;
-    background-color: #0f172a;
-    color: #e2e8f0;
-  }
-  
-  table th {
-    background-color: #1e293b;
-    color: #f8fafc;
-  }
-  
-  table a {
-    color: #38bdf8;
+}
+
+/* TITULOS */
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #b5b5d6;
+    margin-bottom: 35px;
+}
+
+/* ÁREA DE BOTÕES */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* BOTÕES */
+a {
+    display: block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #6a5acd, #836fff);
+    color: #fff;
     text-decoration: none;
-  }
-  
-  table a:hover {
-    text-decoration: underline;
-  }
- 
-  
+    border-radius: 12px;
+    font-size: 1.05rem;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(106, 90, 205, 0.5);
+}
+
+/* BOTÃO VOLTAR */
+.voltar {
+    background: linear-gradient(135deg, #444, #666);
+}
+
+.voltar:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
