@@ -1,8 +1,12 @@
-function trocarImagem() {
-    var imagem = document.getElementById("foto");
-    if (imagem.src.match("images.jpg")) {
-        imagem.src = "imagem.png";
-    } else {
-        imagem.src = "images.jpg";
-    }
-}
+
+    function imagem1(){
+        document.getElementById("foto").setAttribute("src", "image.jpg")
+        }
+
+        function imagem2(){
+            document.getElementById("foto").setAttribute("src", "images.jpg")
+        }
+
+        function adconsole() {
+            console.log(document.getElementById("foto").getAttribute("src"))
+        }
