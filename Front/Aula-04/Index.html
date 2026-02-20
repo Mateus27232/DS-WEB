@@ -1,57 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="Pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Alunos</title>
-    
+    <title>Document</title>
 </head>
 <body>
-    
+    <label>Descrição da nova tarefa</label>
+    <input id="novatarefa" type="text">
+    <br>
 
-    <div class="container">
-        <h1>Cadastro de Alunos</h1>
-       
-       
-        <form id="formCadastro">
-            <div class="input-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" placeholder="Nome " required>
-            </div>
-           
-            <div class="input-group">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" placeholder="email@exemplo.com" required>
-            </div>
-           
-            <div class="input-group">
-                <label for="rm">RM:</label>
-                <input type="number" id="rm" placeholder=" Matrícula" required>
-            </div>
-           
-            <div class="input-group">
-                <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
-            </div>
-           
-            <div class="input-group">
-                <label for="turma">Turma:</label>
-                <input type="text" id="turma" placeholder="Ex: 1º Ano B" required>
-            </div>
-           
-            <button type="button" onclick="cadastrodoAluno()">Cadastrar</button>
-        </form>
+    <button type="button" onclick="adicionar()">Adicionar à lista</button>
+    <div id="lista"></div>
 
-        <hr>
-
-        <h2>Lista de Cadastrados dos Alunos</h2>
-       
-        <div id="listaAlunos">
-           
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
+<script src="script.js"></script>
 </html>
-

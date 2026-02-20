@@ -1,0 +1,59 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+.container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* centraliza horizontal */
+    align-items: center;     /* centraliza vertical */
+    background-color: black;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+button {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.gif img {
+    width: 120px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 5px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;      /* vertical */
+
+}
+
