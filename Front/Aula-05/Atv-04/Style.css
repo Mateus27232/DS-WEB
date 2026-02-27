@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     background-color: black;
@@ -9,14 +10,50 @@ html, body {
     width: 150px;
     height: 150px;
     object-fit: cover;
+    z-index: 20;
+}
+
+.imagem {
+    position: absolute;
+    z-index: 5;
+    /* Pode ficar no meio */
+    /* obrigatório */
+    width: 80px;
+    pointer-events: none;
+    /* evita bugs */
+}
+
+.fixo {
+    position: absolute;
+    width: 60px;
+    pointer-events: none;
+    z-index: 1;
+    /* Fica abaixo da container */
+}
+
+@keyframes sumir {
+    to {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.rastro {
+    position: absolute;
+    width: 60px;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: sumir 0.5s linear forwards;
 }
 
 body {
     margin: 0;
     height: 100vh;
     display: flex;
-    justify-content: center; /* centraliza horizontal */
-    align-items: center;     /* centraliza vertical */
+    justify-content: center;
+    /* centraliza horizontal */
+    align-items: center;
+    /* centraliza vertical */
     background-color: black;
 }
 
@@ -27,6 +64,7 @@ body {
     gap: 20px;
     align-items: center;
     justify-items: center;
+    position: relative;
 }
 
 button {
@@ -53,7 +91,14 @@ button {
     border-radius: 50px;
 
     display: flex;
-    align-items: center;      /* vertical */
+    align-items: center;
+    /* vertical */
 
 }
 
+.imagem-quicando {
+    position: fixed; /* ignora o flex do body */
+    width: 150px;
+    pointer-events: none;
+    z-index: 1; /* atrás da container */
+}
