@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fundo da página */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Título */
+h1 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Formulário */
+form {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: rgba(255,255,255,0.9);
+    transition: 0.3s;
+}
+
+/* Efeito quando clica */
+input:focus {
+    box-shadow: 0 0 8px #4da3ff;
+    transform: scale(1.02);
+}
+
+/* Mensagens de erro */
+span {
+    color: #ff4d4d;
+    font-size: 12px;
+}
+
+/* Botões */
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Botão enviar */
+button[type="submit"] {
+    background: #4da3ff;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background: #2d82da;
+    transform: scale(1.05);
+}
+
+/* Botão limpar */
+button[type="reset"] {
+    background: #555;
+    color: white;
+    margin-left: 10px;
+}
+
+button[type="reset"]:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* Resultado */
+#resultado {
+    margin-top: 25px;
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 10px;
+    width: 420px;
+}
